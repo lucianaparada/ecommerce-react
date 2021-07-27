@@ -18,10 +18,10 @@ function ItemListContainer(){
     useEffect(()=>{
         
         const items=[
-        {id: '1', title: 'Planta 1', description: 'Planta interior deco', price: 800, pictureUrl: {product1}},
-        {id: '2', title: 'Planta 2', description: 'Maceta Gris Topo', price: 950, pictureUrl: {product2}},
-        {id: '3', title: 'Maceta 1', description: 'Maceta Beige', price: 1000, pictureUrl: {product3}},
-        {id: '4', title: 'Maceta 2', description: 'Planta interior deco', price: 700, pictureUrl: {product4}}
+        {id: '1', title: 'Planta 1', description: 'Planta interior deco', price: 800, pictureUrl: product1},
+        {id: '2', title: 'Planta 2', description: 'Maceta Gris Topo', price: 950, pictureUrl: product2},
+        {id: '3', title: 'Maceta 1', description: 'Maceta Beige', price: 1000, pictureUrl: product3},
+        {id: '4', title: 'Maceta 2', description: 'Planta interior deco', price: 700, pictureUrl: product4}
     ];
         
     const getPromiseTask=()=>{
