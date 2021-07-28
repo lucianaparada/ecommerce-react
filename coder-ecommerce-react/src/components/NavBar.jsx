@@ -14,7 +14,6 @@ function NavBar() {
                 <Nav className="mr-auto">
                     <NavLink className="navbarItem" to="/category/plantas">Plantas</NavLink>
                     <NavLink className="navbarItem" to="/category/macetas">Macetas</NavLink>
-                    <NavLink className="navbarItem" to="/category">Semillas</NavLink>
                     <Nav.Link className="navbarItem" href="#"><CartWidget /></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
