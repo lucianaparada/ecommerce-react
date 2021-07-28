@@ -1,20 +1,30 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom'
 import { getMocks } from './getMocks'
 import ItemDetail from './ItemDetail'
 
+
 function ItemDetailContainer() {
-    const [item, setItem] = useState([])
+    const [items, setItem] = useState([])
 
-    useEffect(() => {
+    const { productId } = useParams()
+    
+    useEffect(()=>{
+        
+    if(productId===undefined){
         getMocks()
-        .then(resp => setItem(resp))
-    }, [])
+        .then(resp=> setItem(resp))
+    } else {
+        getMocks()
+        .then(resp=> setItem(resp.filter(it => it.id===productId)))
+    }
 
-    console.log(item)
+    }, [productId])
+    console.log(items);
     return (
         <div>
-            <ItemDetail item={item}/>
+            <ItemDetail items={items}/>
         </div>
     )
 }
