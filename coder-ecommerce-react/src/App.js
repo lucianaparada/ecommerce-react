@@ -4,7 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
-
+import Cart from './components/Cart';
 
 function App() {
 
@@ -21,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/item/:productId">
             <ItemDetailContainer />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
           </Route>
         </Switch>  
       </div>

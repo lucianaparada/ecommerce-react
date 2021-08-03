@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom'
 
 function ItemCount({initial, stock, onAdd}) {
     const [cantidad, setCantidad] = useState(initial);
@@ -14,6 +15,7 @@ function ItemCount({initial, stock, onAdd}) {
     }
     const handleOnAdd=()=>{
         onAdd(cantidad);
+        console.log(cantidad);
     }
 
     return (
@@ -23,11 +25,11 @@ function ItemCount({initial, stock, onAdd}) {
             </div>
             <div className="card-body">
                 <button onClick={handleRemove}>-</button>
-                <label className="alert alert-white">{cantidad}</label>
+                <input type="text" value={cantidad} onChange={handleOnAdd}/>
                 <button onClick={handleAdd}>+</button><br></br>
-                <button className="btn btn-primary btn-block" onClick={handleOnAdd}>
-                    Agregar al carrito
-                </button>
+                <NavLink to="/cart"><button className="btn btn-primary btn-block" onClick={handleOnAdd}>
+                    Terminar mi compra
+                </button></NavLink>
             </div>
         </div>
     )

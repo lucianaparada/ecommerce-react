@@ -1,6 +1,13 @@
-import React from 'react'
+import ItemCount from './ItemCount'
 
-function ItemDetail({items}) {
+let cantidadProductos = 0;
+const handleCount=(cant)=>{
+    cantidadProductos = cant;
+    console.log(cantidadProductos); 
+}
+
+function ItemDetail({items}) { 
+    
     return (
         <div>
             {items.map((item)=>{
@@ -13,6 +20,7 @@ function ItemDetail({items}) {
                     </div>
                 )
             })}
+            <ItemCount stock={10} initial={1} onAdd={handleCount}/>
         </div>
     )
 }
