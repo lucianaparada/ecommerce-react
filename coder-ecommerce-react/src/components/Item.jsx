@@ -1,7 +1,5 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { CartContext } from '../context/CartContext'
-
 
 
 function Item({item}) {

@@ -5,15 +5,10 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
-import { useState, useEffect, useContext } from 'react';
-import CartContext from './context/CartContext';
-import UseCartContext from './context/CartContext';
-import ItemDetail from './components/ItemDetail';
 
 function App() {
 
   return (
-    <UseCartContext>
       <Router >
       <NavBar />
       <div className="App">
@@ -33,7 +28,6 @@ function App() {
         </Switch>  
       </div>
     </Router>
-    </UseCartContext>
 
     /*<Router >
       <NavBar />
