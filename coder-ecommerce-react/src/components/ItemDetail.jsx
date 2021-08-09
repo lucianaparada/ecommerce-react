@@ -1,4 +1,6 @@
 import ItemCount from './ItemCount'
+import { CartContext } from '../context/CartContext';
+
 
 let cantidadProductos = 0;
 const handleCount=(cant)=>{
@@ -19,7 +21,7 @@ function ItemDetail({items}) {
                     </div>
                 )
             })}
-            <ItemCount stock={10} initial={1} onAdd={handleCount}/>
+            <ItemCount stock={10} initial={1} onAdd={handleCount} item={item}/>
         </div>
     )
 }

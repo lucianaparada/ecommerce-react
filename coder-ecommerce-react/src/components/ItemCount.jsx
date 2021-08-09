@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
 
 
+
 const Btn=({handleOnAdd, clase, titulo})=>{
     const objProps={
         className: `btn ${clase} btn-block`,
@@ -17,16 +18,13 @@ const Btn=({handleOnAdd, clase, titulo})=>{
     </button>
 }
 
-const [cart, setCart] = useContext(CartContext);
-function guardarEnEstadoCart(item){
-        if(pulsado){
-        setCart([...cart, item]);
-        }
-    }
-
-function ItemCount({initial, stock, onAdd}) {
+function ItemCount({initial, stock, onAdd, items}) {
     const [cantidad, setCantidad] = useState(initial);
     const [pulsado, setPulsado] = useState(true)
+    const [cart, setCart] = useContext(CartContext);
+function guardarEnEstadoCart(item){
+        setCart([...cart, item]);
+    }
 
     const handleAdd=()=>{
         if (cantidad < stock){
@@ -40,9 +38,10 @@ function ItemCount({initial, stock, onAdd}) {
     }
     const handleOnAdd=(e)=>{
         onAdd(cantidad);
-        setPulsado(!pulsado)
-        guardarEnEstadoCart(item);
+        setPulsado(!pulsado);
+        guardarEnEstadoCart(item, cantidad);
         console.log(cantidad);
+        
     }
 
     return (

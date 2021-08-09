@@ -1,12 +1,13 @@
 import React, {useContext} from 'react'
 import { CartContext } from '../context/CartContext'
+import ItemDetail from './ItemDetail'
 
 function Cart() {
-    const [state, setState] = useContext(CartContext)
+    const [cart, setCart] = useContext(CartContext)
 
     return (
         <div>
-            Soy el carrito
+            {cart.map(item=><h2>{item.title}</h2><p>{item.quantity}</p>)}
         </div>
     )
 }
