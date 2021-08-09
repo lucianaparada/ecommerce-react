@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom'
+import { CartContext } from '../context/CartContext';
 
 
 const Btn=({handleOnAdd, clase, titulo})=>{
@@ -15,6 +16,13 @@ const Btn=({handleOnAdd, clase, titulo})=>{
         {titulo}
     </button>
 }
+
+const [cart, setCart] = useContext(CartContext);
+function guardarEnEstadoCart(item){
+        if(pulsado){
+        setCart([...cart, item]);
+        }
+    }
 
 function ItemCount({initial, stock, onAdd}) {
     const [cantidad, setCantidad] = useState(initial);
@@ -33,6 +41,7 @@ function ItemCount({initial, stock, onAdd}) {
     const handleOnAdd=(e)=>{
         onAdd(cantidad);
         setPulsado(!pulsado)
+        guardarEnEstadoCart(item);
         console.log(cantidad);
     }
 
@@ -45,8 +54,8 @@ function ItemCount({initial, stock, onAdd}) {
                 <button onClick={handleRemove}>-</button>
                 <input type="text" value={cantidad} onChange={handleOnAdd}/>
                 <button onClick={handleAdd}>+</button><br></br>
-                    <NavLink to="/cart"><Btn handleOnAdd={handleOnAdd} clase={ pulsado ? 'd-none' : 'btn-success' } titulo={'Terminar compra'} /></NavLink>
                     <Btn handleOnAdd={handleOnAdd} clase={ pulsado ? ' btn-success' : 'd-none' } titulo={'Comprar'} />
+                    <NavLink to="/cart"><Btn handleOnAdd={handleOnAdd} clase={ pulsado ? 'd-none' : 'btn-success' } titulo={'Terminar compra'} /></NavLink>
             </div>
         </div>
     )

@@ -3,7 +3,6 @@ import ItemCount from './ItemCount'
 let cantidadProductos = 0;
 const handleCount=(cant)=>{
     cantidadProductos = cant;
-    console.log(cantidadProductos); 
 }
 
 function ItemDetail({items}) { 

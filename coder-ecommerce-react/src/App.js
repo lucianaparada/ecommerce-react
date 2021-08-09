@@ -5,10 +5,15 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
+import { useState, useEffect, useContext } from 'react';
+import CartContext from './context/CartContext';
+import UseCartContext from './context/CartContext';
 
 function App() {
 
   return (
+    <Router >
+      <UseCartContext>
       <Router >
       <NavBar />
       <div className="App">
@@ -28,26 +33,9 @@ function App() {
         </Switch>  
       </div>
     </Router>
+    </UseCartContext>
+    </Router>
 
-    /*<Router >
-      <NavBar />
-      <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <ItemListContainer />
-          </Route>
-          <Route exact path="/category/:categoryId">
-            <ItemListContainer />
-          </Route>
-          <Route exact path="/item/:productId">
-            <ItemDetailContainer />
-          </Route>
-          <Route exact path="/cart">
-            <Cart />
-          </Route>
-        </Switch>  
-      </div>
-    </Router>*/
   );
 }
 
