@@ -2,8 +2,6 @@ import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
 
-
-
 const Btn=({handleOnAdd, clase, titulo})=>{
     const objProps={
         className: `btn ${clase} btn-block`,
@@ -18,10 +16,10 @@ const Btn=({handleOnAdd, clase, titulo})=>{
     </button>
 }
 
-function ItemCount({initial, stock, onAdd, items}) {
+function ItemCount({initial, stock, items}) {
     const [cantidad, setCantidad] = useState(initial);
     const [pulsado, setPulsado] = useState(true)
-    const [cart, setCart] = useContext(CartContext);
+    const {cart, setCart} = useContext(CartContext);
 function guardarEnEstadoCart(item){
         setCart([...cart, item]);
     }
@@ -36,12 +34,11 @@ function guardarEnEstadoCart(item){
             setCantidad(cantidad - 1);
         }
     }
-    const handleOnAdd=(e)=>{
-        onAdd(cantidad);
+    const onAdd(items, cantidad)=(e)=>{
         setPulsado(!pulsado);
-        guardarEnEstadoCart(item, cantidad);
+        guardarEnEstadoCart(items, cantidad);
         console.log(cantidad);
-        
+        console.log(cart)
     }
 
     return (
@@ -51,10 +48,10 @@ function guardarEnEstadoCart(item){
             </div>
             <div className="card-body">
                 <button onClick={handleRemove}>-</button>
-                <input type="text" value={cantidad} onChange={handleOnAdd}/>
+                <input type="text" value={cantidad} onChange={onAdd}/>
                 <button onClick={handleAdd}>+</button><br></br>
-                    <Btn handleOnAdd={handleOnAdd} clase={ pulsado ? ' btn-success' : 'd-none' } titulo={'Comprar'} />
-                    <NavLink to="/cart"><Btn handleOnAdd={handleOnAdd} clase={ pulsado ? 'd-none' : 'btn-success' } titulo={'Terminar compra'} /></NavLink>
+                    <Btn handleOnAdd={onAdd} clase={ pulsado ? ' btn-success' : 'd-none' } titulo={'Comprar'} />
+                    <NavLink to="/cart"><Btn handleOnAdd={onAdd} clase={ pulsado ? 'd-none' : 'btn-success' } titulo={'Terminar compra'} /></NavLink>
             </div>
         </div>
     )

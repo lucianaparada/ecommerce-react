@@ -21,7 +21,7 @@ function ItemDetail({items}) {
                     </div>
                 )
             })}
-            <ItemCount stock={10} initial={1} onAdd={handleCount} item={item}/>
+            <ItemCount stock={10} initial={1} item={items}/>
         </div>
     )
 }

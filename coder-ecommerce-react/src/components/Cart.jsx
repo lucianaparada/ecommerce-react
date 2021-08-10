@@ -3,7 +3,7 @@ import { CartContext } from '../context/CartContext'
 import ItemDetail from './ItemDetail'
 
 function Cart() {
-    const [cart, setCart] = useContext(CartContext)
+    const {cart, setCart} = useContext(CartContext)
 
     return (
         <div>
