@@ -43,7 +43,7 @@ function ItemCount({initial, stock, item}) {
                 <input type="text" value={cantidad} onChange={onAdd}/>
                 <button onClick={handleAdd}>+</button><br></br>
                     <Btn handleOnAdd={onAdd} clase={ pulsado ? ' btn-success' : 'd-none' } titulo={'Comprar'} />
-                    <NavLink to="/cart"><Btn handleOnAdd={onAdd} clase={ pulsado ? 'd-none' : 'btn-success' } titulo={'Terminar compra'} /></NavLink>
+                    <NavLink to="/cart"><Btn handleOnAdd={null} clase={ pulsado ? 'd-none' : 'btn-success' } titulo={'Terminar compra'} /></NavLink>
             </div>
         </div>
     )

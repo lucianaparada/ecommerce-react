@@ -21,7 +21,6 @@ function ItemDetailContainer() {
     }
 
     }, [productId])
-    console.log(items);
     return (
         <div>
             <ItemDetail items={items}/>
