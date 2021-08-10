@@ -2,20 +2,17 @@ import { React, useState, createContext } from "react";
 
 export const CartContext = createContext();
 
+
 export default function UseCartContext({children}){
-
-    const [cart, setCart] = useState([{item:{}, quantity: 0}])
-
-    /*function guardarEnEstadoCart(item){
-        if(){
-        }
-        setCart([...cart, item]);
-    }*/
-
+    
+    const [cart, setCart] = useState([])
+    const guardarEnEstadoCart = (item, quantity) =>{
+        setCart([...cart, {'item': item , 'quantity': quantity }]);
+    }    
     return(
 
         <CartContext.Provider value={{
-            cart, setCart
+            cart, setCart, guardarEnEstadoCart
         }}>
             {children}
         </CartContext.Provider>

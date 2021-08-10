@@ -7,7 +7,9 @@ function Cart() {
 
     return (
         <div>
-            {cart.map(item=><h2>{item.title}</h2><p>{item.quantity}</p>)}
+            {cart.map(item=> <div>
+                <h2>{item.title}</h2><p>{item.quantity}</p>
+                </div>)}
         </div>
     )
 }

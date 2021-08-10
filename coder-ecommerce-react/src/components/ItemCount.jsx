@@ -16,13 +16,10 @@ const Btn=({handleOnAdd, clase, titulo})=>{
     </button>
 }
 
-function ItemCount({initial, stock, items}) {
+function ItemCount({initial, stock, item}) {
     const [cantidad, setCantidad] = useState(initial);
     const [pulsado, setPulsado] = useState(true)
-    const {cart, setCart} = useContext(CartContext);
-function guardarEnEstadoCart(item){
-        setCart([...cart, item]);
-    }
+    const {guardarEnEstadoCart} = useContext(CartContext);
 
     const handleAdd=()=>{
         if (cantidad < stock){
@@ -34,18 +31,13 @@ function guardarEnEstadoCart(item){
             setCantidad(cantidad - 1);
         }
     }
-    const onAdd(items, cantidad)=(e)=>{
+    const onAdd = () => {
         setPulsado(!pulsado);
-        guardarEnEstadoCart(items, cantidad);
-        console.log(cantidad);
-        console.log(cart)
+        guardarEnEstadoCart(item, cantidad);
     }
 
     return (
         <div className="card w-50 text-center">
-            <div className="card-header">
-                <h4>Item Count</h4>
-            </div>
             <div className="card-body">
                 <button onClick={handleRemove}>-</button>
                 <input type="text" value={cantidad} onChange={onAdd}/>
