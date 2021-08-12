@@ -1,14 +1,5 @@
 import ItemCount from './ItemCount'
-import { CartContext } from '../context/CartContext';
-
-
-let cantidadProductos = 0;
-const handleCount=(cant)=>{
-    cantidadProductos = cant;
-}
-
 function ItemDetail({items}) { 
-    
     return (
         <div>
             {items.map((item)=>{
@@ -25,5 +16,4 @@ function ItemDetail({items}) {
         </div>
     )
 }
-
 export default ItemDetail
